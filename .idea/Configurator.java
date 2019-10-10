@@ -3,6 +3,7 @@
 
 public class Configurator
 {
+
 public static void main ( String[] args )
 {
         Capacitor cap1 = new Capacitor ( 3 );
