@@ -2,10 +2,12 @@
 
 public class Capacitor extends HardwareComponent
 {
+
 private float capacitorValue;
 
-public Capacitor ( float capacitorValue )
+public Capacitor ( String id, float price, float capacitorValue )
 {
+        super ( id, price );
         this.capacitorValue = capacitorValue;
 }
 
