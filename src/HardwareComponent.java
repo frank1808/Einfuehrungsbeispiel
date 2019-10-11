@@ -21,5 +21,14 @@ public void setPrice ( float new_price )
         this.price = new_price;
 }
 
+public String getId ( )
+{
+        return this.id;
+}
+
+public void setId ( String new_Id )
+{
+        this.id = new_Id;
+}
 
 }

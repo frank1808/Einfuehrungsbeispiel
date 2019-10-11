@@ -1,16 +1,20 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Scanner;
+
 public class PCB
 {
 
-private Collection<HardwareComponent> hwComponents;
-private Collection<CircuitPath> connections;
+private Collection<HardwareComponent> hwComponents = new ArrayList<HardwareComponent>();
+private Collection<CircuitPath> connections = new ArrayList<CircuitPath>();
 
 public void placeComponent ( HardwareComponent hw )
 {
-        if ( hw )
+        if ( hw != null )
                 this.hwComponents.add ( hw );
 }
 
-public boolean connectComponens ( HardwareComponent hw1, HardwareComponent hw2 )
+public boolean connectComponents ( HardwareComponent hw1, HardwareComponent hw2 )
 {
         if ( !( this.hwComponents == null || this.hwComponents.isEmpty() ) )
         {
@@ -28,11 +32,10 @@ public void addConnection ( CircuitPath connection )
 {
         //if ( !( this.hwComponents == null || this.hwComponents.isEmpty() ) )
         {
-                if ( connection != null && connection.hwComponent1 != null && connection.hwComponent2 != null )
+                if ( connection != null && connection.getComponent1() != null && connection.getComponent1() != null )
                 //if ( this.hwComponents.contains( connection.hwComponent1 ) && this.hwComponents.contains( connection.hwComponent2 ) )
                 {
                         this.connections.add ( connection );
-                        return true;
                 }
         }
 }
@@ -40,11 +43,11 @@ public void addConnection ( CircuitPath connection )
 public float calculatePrice ( )
 {
         float price = 0;
-        HardwareComponent component;
+        //HardwareComponent component;
 
         if ( !( this.hwComponents == null || this.hwComponents.isEmpty() ) )
         {
-                for ( component : this.hwComponents )
+                for ( HardwareComponent component : this.hwComponents )
                         price += component.getPrice ();
         }
 
@@ -53,10 +56,10 @@ public float calculatePrice ( )
 
 public void showConnectionDetails ( )
 {
-        CircuitPath connection;
+        //CircuitPath connection;
         if ( !( this.connections == null || this.connections.isEmpty() ) )
-                for ( connection : this.connections )
-                        System.out.println( connection.hwComponent1, "< --- Connected --- >", connection.hwComponent2 );
+                for ( CircuitPath connection : this.connections )
+                        System.out.println( connection.getComponent1().getId() + "< --- Connected --- >" + connection.getComponent2().getId()  );
 
         System.out.println( this.calculatePrice( ) );
 }
